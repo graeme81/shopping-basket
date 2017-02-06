@@ -34,14 +34,14 @@ public class BasketTest {
 
     @Test
     public void canRemoveItemFormBasket(){
-        fillBasket();
+        fillBasket1();
         basket1.removeItem();
         assertEquals(2,basket1.getSize());
     }
 
     @Test
     public void canEmptyBasket(){
-        fillBasket();
+        fillBasket1();
         assertEquals(3,basket1.getSize());
         basket1.emptyBasket();
         assertEquals(0,basket1.getSize());
@@ -49,7 +49,8 @@ public class BasketTest {
 
     @Test
     public void canCalculateTotalPriceOfBasket(){
-        fillBasket2();
+        basket2.addItem(item1);
+        basket2.addItem(item2);
         assertEquals(18.98,basket2.getTotal(),0.01);
     }
 
@@ -72,8 +73,8 @@ public class BasketTest {
 
     @Test
     public void canCalculateLoyalytCardDiscount(){
-        fillBasket();
-        fillBasket();
+        fillBasket1();
+        fillBasket1();
         assertEquals(31.72,basket1.getTotal(),0.01);
     }
 
@@ -83,7 +84,7 @@ public class BasketTest {
 
 
 
-    private void fillBasket(){
+    private void fillBasket1(){
         basket1.addItem(item1);
         basket1.addItem(item2);
         basket1.addItem(item3);
